@@ -1,0 +1,97 @@
+#root {
+  font-family: 'Rubik', sans-serif;
+}
+
+.createView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  border: 5px solid black;
+  margin: 2vw 10vw 1vw;
+  padding: 3vw;
+}
+
+.createView__label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1vw;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.createView__input{
+  font-size: 1em;
+}
+
+.createView__data {
+  font-size: 1em;
+}
+
+.createView__botao{
+  width: 100%;
+  padding: 1em;
+  margin-top: 2vw;
+  background-color: #5aa469;
+  color: white;
+  font-weight: 700;
+  font-size: 1.3em;
+  border: none;
+  transition:background-color .5s;
+}
+
+.createView__botao:hover {
+  cursor: pointer;
+  background-color: #36623f;
+}
+
+
+/* Report view */
+
+.reportView {
+  white-space: pre-line;
+}
+
+.reportView--escondido {
+  display: none;
+}
+
+.reportView__filtros{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+  width: 100%;
+}
+
+.reportView__filtro__nome, .reportView__label__nome, .reportView__label__data, .reportView__filtro__data {
+  margin: 1vw;
+  font-size: 1em;
+}
+
+.reportView__card {
+  display: grid;
+  max-width: 100%;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+}
+
+.reportView__card__item {
+  text-align: justify;
+  border: 5px solid black;
+  padding: 2vw;
+  margin: 1vw;
+}
+
+.reportView__card__item__conteudo{
+  font-size: 1.1em;
+  line-height: 1.12em;
+}
+
+@media only screen and (min-width: 768px) {
+  #root {
+    font-size: 1.1em;
+  }
+}

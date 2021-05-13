@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <title>Gerenciador de Ads</title>
+  </head>
+  <body>
+    <main id="root">
+
+      <section class="createView">
+        <label class="createView__label">Nome do anúncio<input type="text" class="createView__input" data-createView-nome></label>
+        <label class="createView__label">Nome do cliente<input type="text" class="createView__input" data-createView-cliente></label>
+        <label class="createView__label">Data de início<input type="date" class="createView__data" data-createView-dataIn></label>
+        <label class="createView__label">Data de término<input type="date" class="createView__data" data-createView-dataFi></label>
+        <label class="createView__label">Investimento diário<input type="text" class="createView__input" data-createView-investimento></label>
+        <button type="button" name="btncriar" class="createView__botao" data-createView-botao>Criar Anúncio</button>
+      </section>
+
+      <section class="reportView">
+        <div class="reportView__filtros">
+          <label class="reportView__label__nome">Filtro Nome <input type="text" class="reportView__filtro__nome" data-reportView-buscaNome></label>
+          <label class="reportView__label__data">Filtro Data <input type="date" class="reportView__filtro__data" data-reportView-buscaData></label>
+        </div>
+        <ul class="reportView__card" data-reportView-card></ul>
+      </section>
+
+      <script type="module" src="./Components/controller.js"></script>
+    </main>
+  </body>
+</html>
