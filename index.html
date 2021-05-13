@@ -15,14 +15,14 @@
   <body>
     <main id="root">
 
-      <section class="createView">
-        <label class="createView__label">Nome do anúncio<input type="text" class="createView__input" data-createView-nome></label>
-        <label class="createView__label">Nome do cliente<input type="text" class="createView__input" data-createView-cliente></label>
-        <label class="createView__label">Data de início<input type="date" class="createView__data" data-createView-dataIn></label>
-        <label class="createView__label">Data de término<input type="date" class="createView__data" data-createView-dataFi></label>
-        <label class="createView__label">Investimento diário<input type="text" class="createView__input" data-createView-investimento></label>
-        <button type="button" name="btncriar" class="createView__botao" data-createView-botao>Criar Anúncio</button>
-      </section>
+      <form class="createView" name="createViewForm">
+        <label class="createView__label">Nome do anúncio<input type="text" class="createView__input" name="NomeAnuncio" data-createView-nome required></label>
+        <label class="createView__label">Nome do cliente<input type="text" class="createView__input" name="NomeCliente" data-createView-cliente required></label>
+        <label class="createView__label">Data de início<input type="date" class="createView__data" name="DataInicio" data-createView-dataIn required></label>
+        <label class="createView__label">Data de término<input type="date" class="createView__data" name="DataFinal" data-createView-dataFi required></label>
+        <label class="createView__label">Investimento diário<input type="number" class="createView__input" name="Investimento" data-createView-investimento required></label>
+        <button type="submit" name="btncriar" class="createView__botao" data-createView-botao>Criar Anúncio</button>
+      </form>
 
       <section class="reportView">
         <div class="reportView__filtros">

@@ -11,10 +11,10 @@ export function criarCard(Ad) {
     return elemento;
   }
 
-  const criar = getElemento('[data-createView-botao]');
-  criar.addEventListener('click', function() {
+  const criar = getElemento(".createView");
+  criar.addEventListener('submit', function(event) {
 
-    const cardRelatorio = getElemento('[data-reportView-card]')
+    event.preventDefault();
 
     const cardRelatorioItem = criarElemento("li", "reportView__card__item");
     cardRelatorioItem.setAttribute('data-reportView-cardItem', '');
@@ -31,22 +31,40 @@ export function criarCard(Ad) {
     const cardRelatorioDataFi = criarElemento("p", "reportView--escondido");
     cardRelatorioDataFi.setAttribute('data-reportView-dataFi', '');
 
+    const cardRelatorioDeleta = criarElemento("button", "reportView__deleta");
+    cardRelatorioDeleta.setAttribute('data-reportView-deleta', '');
+    cardRelatorioDeleta.textContent = "Apagar"
+
     const main = getElemento(".reportView");
+    const cardRelatorio = getElemento('[data-reportView-card]')
 
     const nome = getElemento('[data-createView-nome]');
     const nomeValor = nome.value;
+    nome.value = "";
 
     const cliente = getElemento('[data-createView-cliente]');
     const clienteValor = cliente.value;
+    cliente.value = "";
 
     const dataIn = getElemento('[data-createView-dataIn]');
+    const anoIn = dataIn.value.slice(0, 4);
+    const mesIn = dataIn.value.slice(5, 7);
+    const diaIn = dataIn.value.slice(8, 11);
     const dataInValor = dataIn.value;
+    cardRelatorioDataIn.textContent = dataInValor
+    dataIn.value = "";
 
     const dataFi = getElemento('[data-createView-dataFi]');
+    const anoFi = dataFi.value.slice(0, 4);
+    const mesFi = dataFi.value.slice(5, 7);
+    const diaFi = dataFi.value.slice(8, 11);
     const dataFiValor = dataFi.value;
+    cardRelatorioDataFi.textContent = dataFiValor
+    dataFi.value = "";
 
     const investimento = getElemento('[data-createView-investimento]');
     const investimentoValor = investimento.value;
+    investimento.value = "";
 
     const card = new Ad(dataInValor, dataFiValor, investimentoValor);
     card.inicial();
@@ -54,20 +72,28 @@ export function criarCard(Ad) {
     cardRelatorioConteudo.textContent =
     `Nome do cliente: ${cardRelatorioNome.textContent = clienteValor}
     Nome do anúncio: ${nomeValor}
-    Data de início: ${cardRelatorioDataIn.textContent = dataInValor}
-    Data de término: ${cardRelatorioDataFi.textContent = dataFiValor}
-    Investimento diário: ${investimentoValor}
-    Valor total investido: ${card.valor}
+    Data de início: ${diaIn}/${mesIn}/${anoIn}
+    Data de término: ${diaFi}/${mesFi}/${anoFi}
+    Investimento diário: R$ ${investimentoValor}
+    Valor total investido: R$ ${card.valor}
     Views totais: ${card.visualizacoes}
     Cliques totais: ${card.cliques}
     Shares totais: ${card.shares}`;
 
     cardRelatorioConteudo.appendChild(cardRelatorioNome);
-    cardRelatorioConteudo.appendChild(cardRelatorioDataIn)
-    cardRelatorioConteudo.appendChild(cardRelatorioDataFi)
+    cardRelatorioConteudo.appendChild(cardRelatorioDataIn);
+    cardRelatorioConteudo.appendChild(cardRelatorioDataFi);
+    cardRelatorioConteudo.appendChild(cardRelatorioDeleta);
     cardRelatorio.appendChild(cardRelatorioItem);
     cardRelatorioItem.appendChild(cardRelatorioConteudo);
-    main.appendChild(cardRelatorio)
+    main.appendChild(cardRelatorio);
 
+    const removeCard = getElemento('[data-reportView-card]')
+    removeCard.addEventListener('click', function(event) {
+      if(event.target && event.target.className == "reportView__deleta") {
+        event.target.parentNode.parentNode.remove();
+      }
+    })
   })
+
 }
