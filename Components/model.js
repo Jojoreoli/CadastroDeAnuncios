@@ -1,3 +1,4 @@
+// Lógica da calculadora
 export class Ad {
   constructor(dataIn, dataFi, investimento) {
     this.dias = this.calcularDiasTotais(dataIn, dataFi);

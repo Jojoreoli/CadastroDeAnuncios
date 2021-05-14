@@ -1,8 +1,10 @@
 import { criarCard } from './view.js'
 import { Ad } from './model.js'
 
+// Chamada inicial
 criarCard(Ad);
 
+// Filtros
 let cliente = document.querySelector('[data-reportView-buscaNome]');
 cliente.onkeyup = function () {
   let filtro = cliente.value.toUpperCase();
